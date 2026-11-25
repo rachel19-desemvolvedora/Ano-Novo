@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Ano Novo | Um Novo Tempo</title>
+
+    <!-- Folha de estilos principal -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fontes do Google: Cinzel (títulos dourados) e Montserrat (textos e UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Canvas em tela cheia para desenhar o cenário animado (pôr do sol, fogos, gaivotas e NPCs) -->
+    <canvas id="cenarioCanvas"></canvas>
+
+    <!-- Camada principal de interface sobre o cenário -->
+    <main class="container">
+        <!-- Barra superior com o ano e o botão de controle de áudio -->
+        <header class="topo">
+            <span class="ano-badge">2027</span>
+
+            <!-- Botão Play/Pause para controlar a música -->
+            <button id="btnAudio" class="btn-audio" type="button" aria-label="Tocar ou pausar música">
+                <span id="iconeAudio">▶</span>
+                <span id="textoAudio">Tocar "Novo Tempo"</span>
+            </button>
+        </header>
+
+        <!-- Mensagem central inspiradora de Ano Novo -->
+        <section class="mensagem-hero">
+            <h1 class="titulo-dourado">Um Novo Tempo Começa Agora</h1>
+
+            <p class="subtitulo-branco">
+                Que a brisa do mar leve tudo o que já cumpriu seu ciclo e traga ondas de paz, saúde e realizações.
+                Hoje é o primeiro dia do resto da sua melhor história.
+            </p>
+
+            <!-- Faixa de frases que alternam automaticamente no script.js -->
+            <div class="frases-inspiradoras">
+                <p id="fraseRotativa" class="frase-destaque">
+                    "Um novo tempo há de vencer pra que a gente possa florescer..."
+                </p>
+            </div>
+
+            <!-- Aviso discreto caso o arquivo novo-tempo.mp3 não seja encontrado na pasta -->
+            <p id="statusAudio" class="status-audio" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <!--
+        Elemento de áudio HTML5:
+        Coloque o arquivo "novo-tempo.mp3" na mesma pasta deste index.html.
+        preload="auto" ajuda o navegador a carregar o arquivo assim que a página abre.
+    -->
+    <audio id="musicaFundo" loop preload="auto">
+        <source src="novo-tempo.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução de áudio HTML5.
+    </audio>
+
+    <!-- Script com animações do cenário e controle de áudio -->
+    <script src="script.js"></script>
+</body>
+</html>
